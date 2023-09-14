@@ -1,5 +1,7 @@
 package org.jsp.reservationapi.dto;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,8 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false,unique = true)
-	private String gst;
+	private String aadhar;
+	@Column(nullable = false)
+	private LocalDate date;
 
 }
