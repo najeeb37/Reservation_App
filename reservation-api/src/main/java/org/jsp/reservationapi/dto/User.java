@@ -1,5 +1,4 @@
 package org.jsp.reservationapi.dto;
-
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -15,7 +14,6 @@ import lombok.Setter;
 @Setter
 public class User {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -28,8 +26,8 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false,unique = true)
-	private String aadhar;
+	private long aadhar;
 	@Column(nullable = false)
-	private LocalDate date;
+	private LocalDate dob;
 
 }
