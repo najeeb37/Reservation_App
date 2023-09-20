@@ -25,7 +25,7 @@ public class AdminDao {
 		return repository.findById(id);
 	}
 	
-	public Optional<Admin> verifyAdmin(long phone,String password){
-		return repository.verifyAdmin(phone, password);
+	public Optional<Admin> verifyAdmin(String email,String password){
+		return repository.verifyAdmin(email, password);
 	}
 }

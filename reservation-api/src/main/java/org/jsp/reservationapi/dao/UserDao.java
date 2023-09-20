@@ -24,7 +24,7 @@ public class UserDao {
 		return repository.findById(id);
 	}
 	
-	public Optional<User> verifyUser(long phone,String password){
-		return repository.verifyUser(phone, password);
+	public Optional<User> verifyUser(String email,String password){
+		return repository.verifyUser(email, password);
 	}
 }
