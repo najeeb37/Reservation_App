@@ -48,9 +48,9 @@ public class UserService {
 		throw new IdNotFoundException();
 	}
 	
-	public ResponseEntity<ResponseStructure<User>> verifyUser(long phone,String password){
+	public ResponseEntity<ResponseStructure<User>> verifyUser(String email,String password){
 		ResponseStructure<User> structure = new ResponseStructure<>();
-		Optional<User> recUser = dao.verifyUser(phone, password);
+		Optional<User> recUser = dao.verifyUser(email, password);
 		if(recUser.isPresent()) {
 			structure.setData(recUser.get());
 			structure.setMessege("User verified");

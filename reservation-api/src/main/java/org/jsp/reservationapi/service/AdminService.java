@@ -46,9 +46,9 @@ public class AdminService {
 		throw new IdNotFoundException();
 	}
 	
-	public ResponseEntity<ResponseStructure<Admin>> verifyAdmin(long phone,String password){
+	public ResponseEntity<ResponseStructure<Admin>> verifyAdmin(String  email,String password){
 		ResponseStructure<Admin> structure = new ResponseStructure<>();
-		Optional<Admin> recAdmin = dao.verifyAdmin(phone, password);
+		Optional<Admin> recAdmin = dao.verifyAdmin(email, password);
 		if(recAdmin.isPresent()) {
 			structure.setData(recAdmin.get());
 			structure.setMessege("Admin verified");
