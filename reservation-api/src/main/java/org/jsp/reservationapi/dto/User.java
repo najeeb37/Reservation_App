@@ -1,11 +1,13 @@
 package org.jsp.reservationapi.dto;
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +32,7 @@ public class User {
 	@Column(nullable = false)
 	private LocalDate dob;
 
+	@OneToMany(mappedBy = "user")
+	private List<Ticket> tickets;
+	
 }

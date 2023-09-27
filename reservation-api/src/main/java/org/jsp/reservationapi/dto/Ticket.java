@@ -1,7 +1,9 @@
 package org.jsp.reservationapi.dto;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -12,32 +14,32 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-public class Bus {
+@Data
+public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(nullable = false)
-	private String name;
-	@Column(name = "from_loc",nullable = false)
-	private String from;
-	@Column(name="to_loc",nullable = false)
-	private String to;
-	@Column(nullable = false)
-	private LocalDate dop;
-	@Column(name="no_of_seats",nullable = false)
-	private int nos;
-	@ManyToOne
-	@JoinColumn(name = "admin_id")
-	@JsonIgnore
-	private Admin admin;
+	private String ticket_no;
 	
-	@OneToMany(mappedBy = "bus")
-	private List<Ticket> tickets;
+	private String seat_no;
+	@Column(nullable = false)
+	private Double cost;
+	
+	@CreationTimestamp
+	private LocalDateTime time_of_booking;
+	@Column(nullable = false)
+	private int no_of_seats;
+	
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private User user;
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private Bus bus;
 }
