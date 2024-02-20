@@ -21,16 +21,19 @@ import lombok.Data;
 public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id;	
 	@Column(nullable = false)
 	private String ticket_no;
 	
+	@Column
 	private String seat_no;
+	
 	@Column(nullable = false)
 	private Double cost;
 	
 	@CreationTimestamp
 	private LocalDateTime time_of_booking;
+	
 	@Column(nullable = false)
 	private int no_of_seats;
 	

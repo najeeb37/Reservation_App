@@ -2,6 +2,7 @@ package org.jsp.reservationapi.dao;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.jsp.reservationapi.dto.Bus;
 import org.jsp.reservationapi.repository.BusRepository;
@@ -24,5 +25,13 @@ public class BusDao {
 	public List<Bus> filter(String from,String to,LocalDate dop){
 		return repository.filter(from, to, dop);
 	}
+	
+	public Optional<Bus> findById(int id){
+		return repository.findById(id);
+	}
+	
+//	public Optional<Bus> verifyBus(String email,String password){
+//		return repository.verifyBus(email, password);
+//	}
 	
 }

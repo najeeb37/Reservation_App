@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class UserDao {
 
 	@Autowired
-	public UserRepository repository;
+	private UserRepository repository;
 	
 	public User saveUser(User user) {
 		return repository.save(user);

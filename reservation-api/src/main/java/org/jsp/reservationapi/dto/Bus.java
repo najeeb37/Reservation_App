@@ -33,6 +33,9 @@ public class Bus {
 	private LocalDate dop;
 	@Column(name="no_of_seats",nullable = false)
 	private int nos;
+	@Column(unique = true	)
+	private String busNo;
+	
 	@ManyToOne
 	@JoinColumn(name = "admin_id")
 	@JsonIgnore
